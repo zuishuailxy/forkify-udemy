@@ -94,6 +94,10 @@ const controlBookmarks = function () {
   bookmarksView.render(model.state.bookmarks);
 };
 
+const newFeature = function () {
+  console.log('hello');
+};
+
 const controlAddRecipe = async function (newRecipe) {
   console.log(newRecipe);
   try {
@@ -133,5 +137,7 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHanderUpload(controlAddRecipe);
+  newFeature();
+  // FIXME:
 };
 init();

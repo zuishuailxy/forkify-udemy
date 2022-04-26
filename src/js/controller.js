@@ -11,9 +11,6 @@ import 'core-js/stable';
 import 'regenerator-runtime/runtime';
 
 ///////////////////////////////////////
-// if (module.hot) {
-//   module.hot.accept();
-// }
 
 const controlRecipes = async function () {
   try {
@@ -24,6 +21,7 @@ const controlRecipes = async function () {
 
     // 0) Update results view to mark selected search result
     resultsView.update(model.getSearchResultsPage());
+
     // 1) Updating bookmarks view
     bookmarksView.update(model.state.bookmarks);
 
@@ -33,7 +31,6 @@ const controlRecipes = async function () {
     // 3) Render recipe
     recipeView.render(model.state.recipe);
   } catch (error) {
-    console.log(error);
     recipeView.renderError();
   }
 };
@@ -55,7 +52,6 @@ const controlSearchResults = async function () {
     // 4) Render Init Pagination button
     paginationView.render(model.state.search);
   } catch (error) {
-    console.log(error);
     resultsView.renderError();
   }
 };
@@ -92,10 +88,6 @@ const controlAddBookmark = function () {
 
 const controlBookmarks = function () {
   bookmarksView.render(model.state.bookmarks);
-};
-
-const newFeature = function () {
-  console.log('hello');
 };
 
 const controlAddRecipe = async function (newRecipe) {
@@ -137,7 +129,5 @@ const init = function () {
   searchView.addHandlerSearch(controlSearchResults);
   paginationView.addHandlerClick(controlPagination);
   addRecipeView.addHanderUpload(controlAddRecipe);
-  newFeature();
-  // FIXME:
 };
 init();
